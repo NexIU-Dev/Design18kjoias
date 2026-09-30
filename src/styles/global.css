@@ -151,7 +151,7 @@ h1 em,h2 em{color:var(--gold);font-weight:400}
 .real-box{grid-column:3;grid-row:1}
 .visit-image{grid-column:1;grid-row:1}
 .visit-copy{grid-column:2;grid-row:1}
-.mobile-contact,.swipe-hint{display:none}
+.mobile-contact,.carousel-controls{display:none}
 
 @media(max-width:700px){
   html{scroll-padding-top:64px}
@@ -195,8 +195,6 @@ h1 em,h2 em{color:var(--gold);font-weight:400}
   .section-heading{margin-bottom:18px}
   .section-heading h2,.service-top h2,.feed-heading h2{margin-top:12px;font-size:clamp(53px,12.5vw,67px);line-height:.96}
   .section-heading>p{max-width:420px;margin-top:14px;font-size:14px;line-height:1.55}
-  .swipe-hint{display:flex;align-items:center;justify-content:space-between;margin:0 0 15px;color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
-  .swipe-hint span{font-size:19px;line-height:1}
   .category-grid,.feed-grid{display:flex;overflow-x:auto;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scroll-padding-inline:20px;scrollbar-width:none;-webkit-overflow-scrolling:touch;touch-action:pan-x;outline-offset:-3px}
   .category-grid::-webkit-scrollbar,.feed-grid::-webkit-scrollbar{display:none}
   .category-grid{gap:13px;width:calc(100% + 40px);margin-inline:-20px;padding-inline:20px 45px}
@@ -269,5 +267,17 @@ h1 em,h2 em{color:var(--gold);font-weight:400}
   .hero-ring{height:322px}
   .hero-detail{top:75px;height:190px}
   .alliance-copy h2,.real-copy h2,.visit-copy h2{font-size:54px}
-  .category-card{flex-basis:78vw}
+}
+
+@media(max-width:700px){
+  .category-grid,.feed-grid{width:100%;margin-inline:0;padding-inline:0;gap:0;scroll-padding-inline:0}
+  .category-card,.feed-card{flex:0 0 100%;min-width:0;scroll-snap-align:start}
+  .category-card{margin:0}
+  .feed-card{aspect-ratio:1}
+  .carousel-controls{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;gap:15px;margin-top:17px}
+  .carousel-controls button{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--ink);border-radius:50%;background:transparent;color:var(--ink);font-size:19px;line-height:1}
+  .carousel-controls button:disabled{opacity:.32;cursor:default}
+  .carousel-count{color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.18em;text-align:center}
+  .feed-section .carousel-controls button{border-color:var(--ink)}
+  .feed-caption{margin-top:18px}
 }

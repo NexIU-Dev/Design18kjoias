@@ -86,8 +86,9 @@ h1 em,h2 em{color:var(--gold);font-weight:400}
 .alliance-image>span{position:absolute;left:0;bottom:0;padding:12px 18px;background:var(--night);color:white;font-size:10px;letter-spacing:.13em;text-transform:uppercase}
 .alliance-copy h2{max-width:550px;margin:25px 0 30px;font-size:clamp(65px,6.7vw,100px);letter-spacing:-.045em}
 .alliance-copy>p{max-width:440px;margin-bottom:38px;color:#5b5b52;font-size:17px;line-height:1.75}
-.alliance-points{display:flex;flex-wrap:wrap;gap:13px;margin-bottom:44px}
-.alliance-points span{padding:8px 12px;border:1px solid rgba(23,24,19,.22);font-size:10px;font-weight:500;letter-spacing:.11em;text-transform:uppercase}
+.alliance-points{display:block;margin-bottom:44px;color:#6f695e}
+.alliance-points span{display:inline;font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase}
+.alliance-points span+span::before{content:'·';display:inline-block;margin-inline:11px;color:var(--gold)}
 .real-moments{display:grid;grid-template-columns:31% 44% 25%;min-height:670px;background:var(--forest);color:var(--paper)}
 .real-photo{height:670px;overflow:hidden}
 .real-photo img{object-position:center}
@@ -152,6 +153,7 @@ h1 em,h2 em{color:var(--gold);font-weight:400}
 .visit-image{grid-column:1;grid-row:1}
 .visit-copy{grid-column:2;grid-row:1}
 .mobile-contact,.carousel-controls{display:none}
+.carousel-shell{position:relative}
 
 @media(max-width:700px){
   html{scroll-padding-top:64px}
@@ -210,8 +212,8 @@ h1 em,h2 em{color:var(--gold);font-weight:400}
   .alliance-grid{display:flex;flex-direction:column;align-items:stretch;gap:39px}
   .alliance-copy h2{max-width:530px;margin:14px 0 18px;font-size:clamp(58px,13.2vw,76px);line-height:.94}
   .alliance-copy>p{max-width:430px;margin-bottom:18px;font-size:15px;line-height:1.6}
-  .alliance-points{gap:7px;margin-bottom:23px}
-  .alliance-points span{padding:6px 9px;font-size:9px}
+  .alliance-points{margin-bottom:23px}
+  .alliance-points span{font-size:10px}
   .alliance-copy .button{min-height:48px;font-size:10px}
   .alliance-image{width:100%;aspect-ratio:1}
   .alliance-image>span{padding:10px 12px;font-size:8px}
@@ -270,14 +272,18 @@ h1 em,h2 em{color:var(--gold);font-weight:400}
 }
 
 @media(max-width:700px){
-  .category-grid,.feed-grid{width:100%;margin-inline:0;padding-inline:0;gap:0;scroll-padding-inline:0}
+  html,body{overflow-x:clip;overscroll-behavior-x:none}
+  .carousel-shell{padding-bottom:25px}
+  .category-grid,.feed-grid{width:100%;margin-inline:0;padding-inline:0;gap:0;overflow-x:hidden;scroll-padding-inline:0;scroll-snap-type:none;touch-action:pan-y}
   .category-card,.feed-card{flex:0 0 100%;min-width:0;scroll-snap-align:start}
   .category-card{margin:0}
   .feed-card{aspect-ratio:1}
-  .carousel-controls{display:grid;grid-template-columns:44px 1fr 44px;align-items:center;gap:15px;margin-top:17px}
-  .carousel-controls button{display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid var(--ink);border-radius:50%;background:transparent;color:var(--ink);font-size:19px;line-height:1}
-  .carousel-controls button:disabled{opacity:.32;cursor:default}
-  .carousel-count{color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.18em;text-align:center}
-  .feed-section .carousel-controls button{border-color:var(--ink)}
+  .carousel-controls{position:absolute;inset:0;display:block;margin:0;pointer-events:none}
+  .carousel-controls button{position:absolute;z-index:2;top:43%;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid rgba(23,24,19,.16);border-radius:50%;background:rgba(250,248,244,.93);box-shadow:0 2px 12px rgba(0,0,0,.08);color:var(--ink);font-size:19px;line-height:1;transform:translateY(-50%);pointer-events:auto}
+  .carousel-controls .carousel-prev{left:16px}
+  .carousel-controls .carousel-next{right:16px}
+  .carousel-controls button:disabled{opacity:.25;cursor:default}
+  .carousel-count{position:absolute;bottom:0;left:50%;color:var(--muted);font-size:10px;font-weight:600;letter-spacing:.18em;white-space:nowrap;transform:translateX(-50%)}
+  .feed-section .carousel-controls button{top:46%}
   .feed-caption{margin-top:18px}
 }

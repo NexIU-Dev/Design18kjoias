@@ -2,6 +2,8 @@
 
 > **Atualização de implementação (30/09/2026):** a landing page foi refeita em Astro usando exclusivamente imagens publicadas no [Instagram da Design18k](https://www.instagram.com/design18ksjc/). As imagens ilustrativas anteriores foram removidas. A comparação antes/depois e os blocos que dependiam de fotos reais de ateliê foram retirados; as seções abaixo registram o plano original e podem servir de referência para uma fase futura quando a marca fornecer esse material.
 
+> **Atualização mobile:** a experiência em telefones foi redesenhada sobre o conteúdo e a direção já aprovados. O topo mostra marca, contato e menu; o hero revela o produto ainda na primeira tela. Coleções e publicações usam galerias horizontais com indicação de deslize, enquanto alianças, essência e visita apresentam a mensagem antes da imagem. Serviços aparecem como lista compacta. O contato fixo surge após o hero e sai quando o bloco final de visita entra em cena. A ordem do HTML acompanha a leitura mobile, e o layout desktop preserva a composição editorial por CSS.
+
 ## 1. Objetivo
 
 Reestruturar o site atual como uma landing page premium, editorial e orientada a desejo, com aparência de joalheria contemporânea e forte conexão com a identidade já utilizada pela Design18k no Instagram.
